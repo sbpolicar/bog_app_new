@@ -1,0 +1,25 @@
+<%= form_for(@creature) do |f| %>
+  <% if @creature.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@creature.errors.count, "error") %> prohibited this creature from being saved:</h2>
+
+      <ul>
+      <% @creature.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <i class="whiten"><%= f.label :name %></i><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <i class="whiten"><%= f.label :description %></i><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions darken">
+    <button class="btn btn-primary darken"><%= f.submit %></button>
+  </div>
+<% end %>
